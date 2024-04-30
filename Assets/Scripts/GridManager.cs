@@ -31,12 +31,12 @@ public class GridManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //EventHandler.RegisterEvent<Vector2Int, Vector2Int>("OnFindingPath", InitPathFinding);
+        EventHandler.RegisterEvent<Vector2Int, Vector2Int>("OnFindingPath", InitPathFinding);
     }
 
     private void OnDisable()
     {
-        //EventHandler.UnregisterEvent<Vector2Int, Vector2Int>("OnFindingPath", InitPathFinding);
+        EventHandler.UnregisterEvent<Vector2Int, Vector2Int>("OnFindingPath", InitPathFinding);
     }
 
     private void Awake()
@@ -52,7 +52,7 @@ public class GridManager : MonoBehaviour
         GenerateNodes();
     }
 
-    public void InitPathFinding(Vector2Int startPos, Vector2Int endPos, AIAgent agent)
+    public void InitPathFinding(Vector2Int startPos, Vector2Int endPos)
     {
         pathFinding = new AStarPathfinding(this);
 
@@ -65,12 +65,6 @@ public class GridManager : MonoBehaviour
         {
             tilemap.SetTile(new Vector3Int(path[i].position.x, path[i].position.y), pathTile);
         }
-
-        //agent.Move();
-        //agent.FollowPath(path);
-
-        agent.SetPath(path);
-
     }
 
     void GenerateNodes()

@@ -13,10 +13,6 @@ public class InputManager : MonoBehaviour
     private Vector3 current_mousePos;
     public Vector3 getMousePositon { get { return current_mousePos; } }
 
-    //For testing
-    public AIAgent agentTest;
-    public bool testPathFinding = false;
-
     private void Awake()
     {
         if (instance == null)
@@ -28,28 +24,23 @@ public class InputManager : MonoBehaviour
         var hX = Input.GetAxisRaw("Horizontal");
         var vY = Input.GetAxisRaw("Vertical");
 
+        //if (testPathFinding)
+        //{
 
-        if (testPathFinding)
-        {
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //        var clickPos = GridManager.instance.grid.WorldToCell(mousePos);
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                var clickPos = GridManager.instance.grid.WorldToCell(mousePos);
+        //        Vector2Int endPos = new Vector2Int(clickPos.x, clickPos.y);
+        //        var ai_pos = GridManager.instance.grid.WorldToCell(agentTest.transform.position);
 
-                Vector2Int endPos = new Vector2Int(clickPos.x, clickPos.y);
-                var ai_pos = GridManager.instance.grid.WorldToCell(agentTest.transform.position);
+        //        GridManager.instance.InitPathFinding(new Vector2Int(ai_pos.x, ai_pos.y), endPos, agentTest);
 
-                GridManager.instance.InitPathFinding(new Vector2Int(ai_pos.x, ai_pos.y), endPos, agentTest);
+        //    }
 
-            }
-
-            return;
-        }
-
-
-
-
+        //    return;
+        //}
 
         if(!IsPlacingObject)
             EventHandler.ExecuteEvent<float, float>("PlayerMovement", hX, vY);
