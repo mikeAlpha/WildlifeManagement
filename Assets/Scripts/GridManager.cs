@@ -28,6 +28,8 @@ public class GridManager : MonoBehaviour
     Vector3Int gridWorldCellPosition;
     int maxX, maxY, minX, minY;
 
+    [SerializeField]
+    private float tilesPerFrame;
 
     private void OnEnable()
     {
@@ -49,28 +51,31 @@ public class GridManager : MonoBehaviour
 
     private void Start()
     {
-        GenerateNodes();
+        StartCoroutine(GenerateNodes());
     }
 
     public void InitPathFinding(Vector2Int startPos, Vector2Int endPos)
     {
         pathFinding = new AStarPathfinding(this);
-
-        //var startPos = new Vector2Int(60, -89);
-        //var endPos = new Vector2Int(289, 169);
-
         var path = pathFinding.FindPath(startPos, endPos);
 
-        for (int i = 0; i < path.Count; i++)
-        {
-            tilemap.SetTile(new Vector3Int(path[i].position.x, path[i].position.y), pathTile);
-        }
+        //for (int i = 0; i < path.Count; i++)
+        //{
+        //    tilemap.SetTile(new Vector3Int(path[i].position.x, path[i].position.y), pathTile);
+        //}
     }
 
-    void GenerateNodes()
+    IEnumerator GenerateNodes()
     {
         nodes = new List<Node>();
-        for(int x = 0; x < NodeSizeX; x++)
+
+        maxX = gridWorldCellPosition.x + NodeSizeX - 1;
+        maxY = gridWorldCellPosition.y + NodeSizeY - 1;
+        minX = gridWorldCellPosition.x;
+        minY = gridWorldCellPosition.y;
+
+
+        for (int x = 0; x < NodeSizeX; x++)
         {
             for(int y = 0; y<NodeSizeY; y++)
             {
@@ -78,13 +83,15 @@ public class GridManager : MonoBehaviour
                 var pos = new Vector2Int(x, y) + new Vector2Int(gridWorldCellPosition.x, gridWorldCellPosition.y);
                 tilemap.SetTile(new Vector3Int(pos.x,pos.y), tile);
                 nodes.Add(new Node(pos, true));
+
+                float progress = ((float)(x * NodeSizeY + y) / (NodeSizeX * NodeSizeY)) * 100f;
+
+                Debug.Log("Progress====" + progress);
+
+                if ((x * NodeSizeY + y) % tilesPerFrame == 0)
+                    yield return null;
             }
         }
-
-        maxX = gridWorldCellPosition.x + NodeSizeX - 1;
-        maxY = gridWorldCellPosition.y + NodeSizeY - 1;
-        minX = gridWorldCellPosition.x;
-        minY = gridWorldCellPosition.y;
     }
 
     void SetTileWalkableOrNot(Vector2Int pos, bool val)

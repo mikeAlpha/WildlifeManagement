@@ -16,7 +16,7 @@ namespace mikealpha
             mRootNode = CreateNode();
         }
 
-        private void Update()
+        public virtual void Update()
         {
             if (mRootNode != null)
                 mRootNode.UpdateStatus(Tick);

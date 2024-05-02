@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: 07b24e589079abe43acdf56015f22b92, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 07b24e589079abe43acdf56015f22b92, type: 3}
       propertyPath: m_SortingOrder
@@ -567,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: d3d99860af746a34d8fb2a536dbe1d2b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: d3d99860af746a34d8fb2a536dbe1d2b, type: 3}
       propertyPath: m_SortingOrder
@@ -779,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2253911629886400664, guid: bf7205af0a3020e44af763148522cc2e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: bf7205af0a3020e44af763148522cc2e, type: 3}
       propertyPath: m_SortingOrder
@@ -1295,11 +1295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f0fd9b0c5f05647a0cdf9f6886b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeSizeX: 300
-  NodeSizeY: 300
+  NodeSizeX: 1000
+  NodeSizeY: 1000
   grid: {fileID: 0}
   tile: {fileID: 11400000, guid: ce4d5a383fb6aa7439bda320bcd192c8, type: 2}
   pathTile: {fileID: 11400000, guid: bfe070d2068aa204b9f3c736bd301ab4, type: 2}
+  tilesPerFrame: 100000
 --- !u!1 &1637088186
 GameObject:
   m_ObjectHideFlags: 0
