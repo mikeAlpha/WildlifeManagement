@@ -1295,12 +1295,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f0fd9b0c5f05647a0cdf9f6886b26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NodeSizeX: 1000
-  NodeSizeY: 1000
+  NodeSizeX: 300
+  NodeSizeY: 300
   grid: {fileID: 0}
   tile: {fileID: 11400000, guid: ce4d5a383fb6aa7439bda320bcd192c8, type: 2}
   pathTile: {fileID: 11400000, guid: bfe070d2068aa204b9f3c736bd301ab4, type: 2}
-  tilesPerFrame: 100000
+  tilesPerFrame: 5000
 --- !u!1 &1637088186
 GameObject:
   m_ObjectHideFlags: 0

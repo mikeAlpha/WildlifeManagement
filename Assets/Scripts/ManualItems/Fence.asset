@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf7e1754eb41b75449b9405cb6dec11b, type: 3}
-  m_Name: Barn
+  m_Script: {fileID: 11500000, guid: cc4d45c57a1959248accd24e34e7de38, type: 3}
+  m_Name: Fence
   m_EditorClassIdentifier: 
-  ItemName: Farm
-  Render: {fileID: 1992925357425699088, guid: 3d9dd9e71f3800741bee1c60e62a2c6d, type: 3}
+  ItemName: 
+  Render: {fileID: 0}
   ItemDescription: 
   area:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 7, y: 7, z: 7}
+    m_Size: {x: 0, y: 0, z: 0}

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ManualItem", menuName = "Assets/ManualItem")]
 public class ManualItem : ScriptableObject
 {
     public string ItemName;

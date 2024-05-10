@@ -70,9 +70,13 @@ public class InputManager : MonoBehaviour
             {
                 EventHandler.ExecuteEvent("DestroyCurrentObject");
                 IsPlacingObject = false;
+                IsManualEnabled = false;
             }
             else if (Input.GetMouseButtonDown(0))
+            {
                 IsPlacingObject = false;
+                IsManualEnabled = false;
+            }
         }
 
         if(Input.GetMouseButtonDown(0) && !IsPlacingObject && !IsManualEnabled)
